@@ -1,0 +1,75 @@
+﻿
+<body class="my-login-page">
+    <section class="h-100">
+        <div class="container h-100">
+            <div class="row justify-content-md-center h-100" style="background-color: #a7a7dc;">
+                <div class="card-wrapper">
+                    <div class="brand">
+                        <img src="/assets/image/clinic2.jpg" data-retina="assets/images/clinic2.jpg" alt="logo">
+                    </div>
+                    <div class="card fat">
+                        <div class="card-body">
+                            <h4 class="card-title">Registro</h4>
+                            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+                                <div class="form-group">
+                                    <label for="firstName">Nombre</label>
+                                    <input type="email" formControlName="firstName" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                        <div *ngIf="f.firstName.errors.required">Correo no Valido</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="username">E-Mail/Correo Electronico</label>
+                                    <input type="text" formControlName="username" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                        <div *ngIf="f.username.errors.required">Username is required</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" formControlName="password" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                        <div *ngIf="f.password.errors.required">Password es requerido</div>
+                                        <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button [disabled]="loading" class="btn btn-primary btn-block">
+                                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                        Registro
+                                    </button>
+                                </div>
+
+								<div class="mt-4 text-center">
+									Ya cuenta con una cuenta? <a routerLink="/login">Ingresar</a>
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        &copy; Todos los derechos reservados <a target="_blank" rel="nofollow" href="#">CLINICA
+                            ALVAREZ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="js/my-login.js"></script>
+</body>

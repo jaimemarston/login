@@ -1,0 +1,65 @@
+<body class="my-login-page">
+    <section class="h-100">
+        <div class="container h-100">
+            <div class="row justify-content-md-center h-100" style="background-color: #a7a7dc;">
+                <div class="card-wrapper">
+                    <div class="brand">
+                        <img src="/assets/image/clinic2.jpg" data-retina="assets/images/clinic2.jpg" alt="logo">
+                    </div>
+                    <div class="card fat">
+                        <div class="card-body">
+                            <h4 class="card-title">INTRANET - Pacientes</h4>
+                            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                                <div class="form-group">
+                                    <label for="username">Correo Electronico</label>
+                                    <input type="text" formControlName="username" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                        <div *ngIf="f.username.errors.required">Correo no Valido</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <a href="forgot.html" class="float-right">
+                                        Olvido el Password?
+                                    </a>
+                                    <input type="password" formControlName="password" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }"  />
+                                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                        <div *ngIf="f.password.errors.required">Password es obligatorio</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group m-0">
+                                    <button  [disabled]="loading" class="btn btn-primary btn-block">
+                                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                        Ingresar
+                                    </button>
+                                </div>
+                                <div class="mt-4 text-center">
+                                    No cuento con usuario <a routerLink="/register">Registrarme</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        &copy; Todos los derechos reservados <a target="_blank" rel="nofollow" href="#">CLINICA
+                            ALVAREZ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="js/my-login.js"></script>
+</body>
