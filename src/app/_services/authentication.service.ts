@@ -4,23 +4,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { User } from '../_models';
-export interface IUser {
-    id: number;
-    nombre: string;
-    apellido_paterno: string;
-    apellido_materno: string;
-    foto: string;
-    sexo: number;
-    telefono1: string;
-    correo: string;
-    dni: string;
-    cargo: string;
-    username: string;
-}
-export interface IUserAuth {
-    token: string;
-    user: IUser;
-}
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -37,7 +20,7 @@ export class AuthenticationService {
     }
 
     login(username: string, password: string) {
-        return this.http.post<IUserAuth>(`authenticate`, { username, password })
+        return this.http.post<any>(`/users/authenticate`, { username, password })
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('currentUser', JSON.stringify(user));
